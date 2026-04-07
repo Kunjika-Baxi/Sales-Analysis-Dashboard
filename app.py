@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-import matplotlib.pyplot as plt
 
 df=pd.read_excel("C:\\Users\\HP\\Downloads\\Sales_bigdata.xls",engine="xlrd")
 df['Order Date']=pd.to_datetime(df['Order Date'])
