@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.express as px
 import matplotlib.pyplot as plt
 
-df=pd.read_csv("C:\\Users\\HP\\C-TAG Data Science\\Sales_bigdata.csv")
+df=pd.read_csv("Sales_bigdata.csv")
 df['Order Date']=pd.to_datetime(df['Order Date'])
 df['Ship Date']=pd.to_datetime(df['Ship Date'])
 
