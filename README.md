@@ -23,7 +23,7 @@ It provides interactive visualizations and KPIs for profit trends, product perfo
 - Size: ~595 MB, ~5,000,000 rows.  
 - Columns include: `Region`, `Country`, `Item Type`, `Order Date`, `Ship Date`, `Total Profit`, etc.  
 - For deployment, a **sample dataset** is used to keep the app responsive.  
-- Full dataset is available [here](https://drive.google.com/uc?id=1JSKOTpi0y6jHvdPpKKHm5VCV0FgGdWV5).
+- Full dataset is available [here](https://drive.google.com/drive/folders/1uRHzyAVkLlKv7hyGr1ln5vCc_MF3GrsH).
 
 ---
 
