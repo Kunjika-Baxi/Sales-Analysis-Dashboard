@@ -3,11 +3,12 @@ import pandas as pd
 import plotly.express as px
 import matplotlib.pyplot as plt
 import gdown
-file_id = "1JSKOTpi0y6jHvdPpKKHm5VCV0FgGdWV5"
+
+file_id = "1wZzbbgXaBYyp6M7nk39RpR36fI9MVQML"
 url = f"https://drive.google.com/uc?id={file_id}"
 
 # Download locally
-output = "Sales_bigdata.csv"
+output = "Sales_analysis.csv"
 gdown.download(url, output, quiet=False)
 
 # Read with pandas
@@ -68,7 +69,7 @@ col3.markdown(
 col4.metric("Max Profit Country",maxpcountry.iloc[0])
 col5.metric("Product that drives max profit",maxppro_item,maxppro_value)
 
-col6,col7,col8,col9=st.columns(4)
+col6,col7,col8,col9,col10=st.columns(5)
 shm=filter_df.groupby('Ship_Month')['Total Profit'].mean()
 shm.sort_index(inplace=True)
 
@@ -81,10 +82,13 @@ with col6:
 with col7:
     ct=filter_df['Profit_Status'].value_counts()
     fig3=px.pie(ct,color_discrete_sequence=['purple','orange','yellow'],names=ct.index,values=ct.values,title="Profit Cateory")
+with col10:
+    stp=filter_df['Sales Channel'].value_counts()
+    fig5=px.pie(stp,color_discrete_sequence=['orange','purple'],names=stp.index,values=stp.values,title="Online v/s Offline Sales")
 with col8:
     ct=filter_df.groupby('Country')['Total Profit'].mean().reset_index()
     fig4=px.choropleth(ct,locations='Country',locationmode="country names",color_continuous_scale='plasma',color='Total Profit',title="Average Profit Country wise")
-tab1,tab2, tab3, tab4 = st.tabs(["Products","Shipments","Categorical Distribution","GeoMaps"])
+tab1,tab2, tab3, tab4, tab5 = st.tabs(["Products","Shipments","Categorical Distribution","GeoMaps","Sales Channel"])
 
 with tab1:
     st.plotly_chart(fig1,use_container_width=True)
@@ -94,6 +98,8 @@ with tab3:
     st.plotly_chart(fig3,use_container_width=True)
 with tab4:
     st.plotly_chart(fig4,use_container_width=True)
+with tab5:
+    st.plotly_chart(fig5,use_container_width=True)
 
 
 
